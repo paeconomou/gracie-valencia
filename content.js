@@ -62,7 +62,7 @@ window.SITE = {
   classTypes: {
     kids:        "Kids",
     adults:      "Adults",
-    beginners:   "Beginners",
+    fundamentals: "Fundamentals",
     women:       "Women",
     competition: "Kids Competition",
   },
@@ -74,7 +74,7 @@ window.SITE = {
       { name: "Kids (ages 5–12)",  type: "kids",        days: "Mon Wed Fri", time: "5:00pm - 6:00pm" },
       { name: "Kids No-Gi",        type: "kids",        days: "Sat",         time: "9:00am - 10:00am" },
       { name: "Kids Competition Class", type: "competition", days: "Mon Wed Fri", time: "6:00pm - 7:00pm" },
-      { name: "Beginners",         type: "beginners",   days: "Tue Thu",     time: "5:00pm - 6:00pm" },
+      { name: "Fundamentals",      type: "fundamentals", days: "Tue Thu",    time: "5:00pm - 6:00pm", note: "All levels · beginners welcome" },
       { name: "Adult Class",       type: "adults",      days: "Mon-Thu",     time: "10:30am - 12:00pm" },
       { name: "Adult Class",       type: "adults",      days: "Mon-Thu",     time: "7:00pm - 8:30pm" },
       { name: "Adult No-Gi",       type: "adults",      days: "Fri",         time: "10:30am - 12:00pm" },
@@ -99,10 +99,10 @@ window.SITE = {
       image: "assets/img/kids-class.jpg",
     },
     {
-      title: "Beginners",
-      type: "beginners",
-      ages: "Adults · no experience needed",
-      text: "Never trained before? Start here. The fundamentals of Gracie Jiu-Jitsu: escapes, positions and self-defense, taught step by step.",
+      title: "Fundamentals",
+      type: "fundamentals",
+      ages: "All levels · beginners welcome",
+      text: "The core of Gracie Jiu-Jitsu: escapes, positions and self-defense, taught step by step. The perfect place to start if you're new, and a class every level trains in to sharpen the basics.",
       image: "",
     },
     {
@@ -190,7 +190,7 @@ window.SITE = {
 
   /* ---------- QUESTIONS & ANSWERS ---------- */
   faq: [
-    { q: "I've never done jiu-jitsu. Where do I start?", a: "Book a free intro class. Most new adults start in the Beginners class, and every class is open to all levels, so you'll never be thrown in the deep end." },
+    { q: "I've never done jiu-jitsu. Where do I start?", a: "Book a free intro class. Most new adults start in the Fundamentals class, where students of every level drill the core techniques together, so you'll never be thrown in the deep end." },
     // A longer answer can be split into paragraphs: put each one in quotes, inside [ ].
     { q: "What is Brazilian Jiu-Jitsu?", a: [
       "Jiu-Jitsu, the “gentle art,” is built on three principles: technique, leverage and balance. Its roots are traced to Buddhist monks in India, who developed it for self-defense on their travels. From there it spread to China, and then to Japan.",

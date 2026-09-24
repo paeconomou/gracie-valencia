@@ -19,7 +19,7 @@
   /* one color per class type (schedule + program tags) */
   --t-kids: #2d7ff9;
   --t-adults: #16181c;
-  --t-beginners: #1f9d68;
+  --t-fundamentals: #1f9d68;
   --t-women: #c43d7c;
   --t-competition: #d8432f;
   --t-default: #7a7d85;
@@ -191,7 +191,7 @@ p { margin: 0 0 1em; }
 
 [data-type="kids"] { --c: var(--t-kids); }
 [data-type="adults"] { --c: var(--t-adults); }
-[data-type="beginners"] { --c: var(--t-beginners); }
+[data-type="fundamentals"] { --c: var(--t-fundamentals); }
 [data-type="women"] { --c: var(--t-women); }
 [data-type="competition"] { --c: var(--t-competition); }
 
