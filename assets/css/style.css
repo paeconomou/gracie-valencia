@@ -260,10 +260,11 @@ p { margin: 0 0 1em; }
 .creds { list-style: none; padding: 0; margin: 26px 0 30px; display: grid; gap: 12px; }
 .creds li { position: relative; padding-left: 30px; font-weight: 500; }
 .creds li::before { content: ""; position: absolute; left: 0; top: .5em; width: 14px; height: 12px; background: var(--gold); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
-.chain { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 32px; }
-.chain li { position: relative; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 1.15rem; letter-spacing: .02em; padding: 8px 14px; border: 1px solid var(--line-dark); border-radius: 999px; }
-.chain li:last-child { background: var(--gold); color: var(--ink); border-color: var(--gold); }
-.chain li + li::before { content: "→"; position: absolute; left: -24px; top: 50%; transform: translateY(-50%); color: var(--muted-on-dark); font-family: var(--font-body); font-size: 1rem; }
+.chain { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.chain li { display: flex; align-items: center; gap: 10px; }
+.chain li + li::before { content: "→"; color: var(--muted-on-dark); font-size: 1rem; }
+.chain span { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 1.15rem; letter-spacing: .02em; padding: 8px 14px; border: 1px solid var(--line-dark); border-radius: 999px; white-space: nowrap; }
+.chain li:last-child span { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 
 /* ---------- Lineage scroller ---------- */
 .scroller-btns { display: flex; gap: 8px; }
@@ -428,6 +429,9 @@ p { margin: 0 0 1em; }
   .scroller { padding-inline: 16px; scroll-padding-inline: 16px; grid-auto-columns: 78%; }
   .program-grid { grid-template-columns: 1fr; }
   .session .time { min-width: 6.8em; }
+  .chain, .chain li { gap: 5px; }
+  .chain span { font-size: .86rem; padding: 6px 9px; letter-spacing: .01em; }
+  .chain li + li::before { font-size: .85rem; }
   .map { height: 280px; }
   .action-bar {
     display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;

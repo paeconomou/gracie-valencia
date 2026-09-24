@@ -317,7 +317,7 @@
   if (P.image) { $("#master-img").src = P.image; $("#master-img").alt = P.name || ""; }
   $("#master-bio").innerHTML = (P.bio || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
   $("#master-creds").innerHTML = (P.credentials || []).map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("");
-  $("#master-chain").innerHTML = (P.lineage || []).map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("");
+  $("#master-chain").innerHTML = (P.lineage || []).map(function (t) { return "<li><span>" + esc(t) + "</span></li>"; }).join("");
 
   /* ---------- lineage ---------- */
   $("#lineage-track").innerHTML = (S.lineage || []).map(function (m) {
