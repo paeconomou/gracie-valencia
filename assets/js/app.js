@@ -320,19 +320,9 @@
   $("#master-chain").innerHTML = (P.lineage || []).map(function (t) { return "<li><span>" + esc(t) + "</span></li>"; }).join("");
 
   /* ---------- lineage ---------- */
-  function beltJourney(belts) {
-    if (!belts || !belts.length) return "";
-    var names = belts.map(function (b) { return String(b).toLowerCase(); });
-    return '<div class="belt-journey" role="img" aria-label="' + esc(names.join(" belt to ")) + ' belt">' +
-      names.map(function (b) {
-        return '<span class="belt-step"><span class="belt" data-belt="' + esc(b) + '"></span><small>' + esc(b) + "</small></span>";
-      }).join('<span class="belt-arrow" aria-hidden="true">→</span>') + "</div>";
-  }
-
   $("#lineage-track").innerHTML = (S.lineage || []).map(function (m) {
     return '<figure class="moment"><img src="' + esc(m.image) + '" alt="' + esc(m.title) + '" loading="lazy">' +
-      '<figcaption><span class="label">' + esc(m.label) + "</span><h3>" + esc(m.title) + "</h3><p>" + esc(m.text) + "</p>" +
-      beltJourney(m.journey) + "</figcaption></figure>";
+      '<figcaption><span class="label">' + esc(m.label) + "</span><h3>" + esc(m.title) + "</h3><p>" + esc(m.text) + "</p></figcaption></figure>";
   }).join("");
   $$("[data-scroll]").forEach(function (b) {
     b.addEventListener("click", function () {

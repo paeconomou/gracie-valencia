@@ -162,8 +162,6 @@ window.SITE = {
     { label: "Lineage",   image: "assets/img/lineage-promotion.jpg",  title: "Promoted by Royler Gracie",      text: "Mario's master, and one of the most decorated competitors in Gracie history." },
     { label: "Lineage",   image: "assets/img/lineage-royler.jpg",     title: "With Royler Gracie",             text: "A direct line back to the Gracie Humaitá academy in Rio." },
     { label: "Jan 2026",  image: "assets/img/lineage-coral-ceremony.jpg", title: "Coral belt ceremony",        text: "Promoted to coral belt at the original Gracie Humaitá academy in Rio de Janeiro, January 17, 2026." },
-    // "journey" draws a small belt progression. Colors: white, blue, purple, brown, black
-    { label: "Passing it on", image: "assets/img/lineage-ruben.jpg", title: "Ruben: purple belt to black belt", text: "Here with Master Mario after medaling as a purple belt. Today Ruben is a black belt, and he still trains at the academy.", journey: ["purple", "black"] },
   ],
 
   /* ---------- REVIEWS ----------
