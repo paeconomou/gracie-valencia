@@ -196,6 +196,30 @@ window.SITE = {
     items: [],
   },
 
+  /* ---------- NEW STUDENTS: HOUSE RULES ----------
+     alert: the one rule shown big at the top.
+     icon: footwear, nails, jewelry, gi, colors, hygiene, sick, check, shirt
+     tag: optional label on a card, e.g. "Recommended"                */
+  newStudents: {
+    heading: "Before you step on the mat",
+    intro: "Jiu-jitsu is a close-contact sport, so we look out for each other. A few house rules keep everyone healthy and training. Most regulars follow them without thinking, but nobody tells you on day one, so here they are.",
+    alert: {
+      title: "Footwear in the bathroom. Always.",
+      text: "Never walk into the restroom barefoot. It's the most important rule we have for preventing skin infections, for you and for everyone you train with.",
+    },
+    rules: [
+      { icon: "footwear", title: "Shoes off the mat, sandals on everywhere else", text: "Never wear shoes on the mats. Bring flip-flops or slides and put them on any time you step off." },
+      { icon: "nails",    title: "Trim your nails", text: "Short fingernails and toenails protect your training partners, and you." },
+      { icon: "jewelry",  title: "Remove jewelry and piercings", text: "Rings, watches, earrings and piercings come off before class. They can scratch a partner or catch and tear." },
+      { icon: "gi",       title: "A clean gi, every class", text: "Always train in a freshly washed uniform. After class, wash it as soon as you can to prevent stains and smells." },
+      { icon: "colors",   title: "Blue or white gi only", text: "For gi classes, please wear a blue or white gi." },
+      { icon: "hygiene",  title: "Take care of hygiene", text: "Come to class fresh: no body odor, no bad breath. You'll be close to your partners the whole time." },
+      { icon: "sick",     title: "Feeling sick? Skip training", text: "If you're sick, or think you might be, sit that day out. Your training partners will thank you." },
+      { icon: "check",    title: "Rash or skin infection? Ask first", text: "If you have a rash or anything that might be an infection, check with Master Mario or an upper belt before training, to make sure it isn't contagious." },
+      { icon: "shirt",    title: "Rash guard under your gi", text: "Not required, but we suggest wearing an undershirt or rash guard under your gi.", tag: "Recommended" },
+    ],
+  },
+
   /* ---------- QUESTIONS & ANSWERS ---------- */
   faq: [
     { q: "I've never done jiu-jitsu. Where do I start?", a: "Book a free intro class. Most new adults start in the Fundamentals class, where students of every level drill the core techniques together, so you'll never be thrown in the deep end." },
@@ -206,7 +230,7 @@ window.SITE = {
       "It was Grand Master Helio Gracie who perfected the art. He refined every technique so that a smaller, lighter person could defeat a bigger, stronger opponent, and became known as the father of Brazilian Jiu-Jitsu.",
       "The Gracie Academy later moved from downtown Rio to the Vasco da Gama club in Lagoa in 1981, and in 1985 to Humaitá, where Gracie Humaitá still teaches today under Master Rolker Gracie. Gracie Humaitá Valencia carries on that same lineage.",
     ] },
-    { q: "What should I bring to my first class?", a: "Arrive 5–10 minutes early ready to train. Wear comfortable workout clothes and bring water. If you have a gi, bring it. If not, just ask when you book." },
+    { q: "What should I bring to my first class?", a: "Arrive 5–10 minutes early ready to train. Wear comfortable workout clothes, and bring water and a pair of flip-flops. If you have a gi, bring it. If not, just ask when you book. And give the house rules above a quick read." },
     { q: "How old does my child need to be?", a: "Our Little Kids class is for ages 3–6, and the Kids class is for ages 7 and up. There are also kids no-gi classes during the week and on Saturday mornings. See the schedule for times." },
     { q: "What's the difference between gi and no-gi?", a: "Gi classes are taught in the traditional kimono, where grips on the collar and sleeves are part of the game. No-gi is trained in shorts and a rash guard, which makes it faster and closer to wrestling and MMA. We train both." },
     { q: "Do you offer private lessons?", a: "Yes. Private lessons with Master Mario are available on request. Call or text to set one up." },

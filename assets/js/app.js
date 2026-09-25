@@ -414,6 +414,43 @@
   carousel.addEventListener("focusout", startAuto);
   startAuto();
 
+  /* ---------- new students: house rules ---------- */
+  var ICONS = {
+    footwear: '<path d="M12 2.5c-3 0-4.8 2.6-4.8 6.3 0 3.4 1 5.4 1 8.2 0 2.5 1.5 4.5 3.8 4.5s3.8-2 3.8-4.5c0-2.8 1-4.8 1-8.2 0-3.7-1.8-6.3-4.8-6.3z"/><path d="M8.3 11 12 6.8l3.7 4.2"/>',
+    nails:    '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/>',
+    jewelry:  '<circle cx="12" cy="15" r="6"/><path d="M9.3 3.5h5.4l1.8 2.7L12 10 7.5 6.2z"/>',
+    gi:       '<path d="M8 3 4 5.5 2.5 10.5l3 1V21h13v-9.5l3-1L20 5.5 16 3"/><path d="M8 3l4 8 4-8"/><path d="M5.5 15h13"/>',
+    colors:   '<circle cx="9" cy="12" r="5.5" fill="#f4f4f1"/><circle cx="15" cy="12" r="5.5" fill="#2560c2"/>',
+    hygiene:  '<path d="M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21M5.6 5.6l2.5 2.5M15.9 15.9l2.5 2.5M5.6 18.4l2.5-2.5M15.9 8.1l2.5-2.5"/><circle cx="12" cy="12" r="2.2"/>',
+    sick:     '<path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/><path d="M12 11v6"/>',
+    check:    '<circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/><path d="M11 8v3.5M11 14v.1"/>',
+    shirt:    '<path d="M20.4 6.6 16 4a4 4 0 0 1-8 0L3.6 6.6a1 1 0 0 0-.5 1.2l1.1 3.2a1 1 0 0 0 1.2.6L7 11v9a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-9l1.6.6a1 1 0 0 0 1.2-.6l1.1-3.2a1 1 0 0 0-.5-1.2z"/>',
+    alert:    '<path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4.5M12 17.2v.1"/>',
+  };
+  function icon(name) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      (ICONS[name] || ICONS.alert) + "</svg>";
+  }
+
+  var NS = S.newStudents;
+  if (NS) {
+    $("#ns-heading").textContent = NS.heading || "";
+    $("#ns-intro").textContent = NS.intro || "";
+    if (NS.alert) {
+      $("#ns-alert").innerHTML = '<span class="ns-alert-icon">' + icon("alert") + "</span><div><strong>" + esc(NS.alert.title) + "</strong><p>" + esc(NS.alert.text) + "</p></div>";
+    } else $("#ns-alert").remove();
+    $("#ns-grid").innerHTML = (NS.rules || []).map(function (r) {
+      return '<article class="ns-rule reveal' + (r.tag ? " is-tagged" : "") + '">' +
+        '<span class="ns-icon">' + icon(r.icon) + "</span>" +
+        (r.tag ? '<span class="ns-tag">' + esc(r.tag) + "</span>" : "") +
+        "<h3>" + esc(r.title) + "</h3><p>" + esc(r.text) + "</p></article>";
+    }).join("");
+  } else {
+    $("#new-students").remove();
+    var nsLink = $('#site-nav a[href="#new-students"]');
+    if (nsLink) nsLink.remove();
+  }
+
   /* ---------- FAQ ---------- */
   $("#faq-list").innerHTML = (S.faq || []).map(function (f) {
     var paras = Array.isArray(f.a) ? f.a : [f.a];
