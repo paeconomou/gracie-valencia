@@ -155,14 +155,15 @@ window.SITE = {
   },
 
   /* ---------- LINEAGE PHOTOS ----------
-     Shown as a sideways-scrolling strip. Add or remove as many as you like.
+     Shown as a sideways-scrolling strip, oldest first. Add or remove as many as you like.
      CONFIRM WITH MARIO: these captions are best guesses from the photos. */
   lineage: [
     { label: "2000",      image: "assets/img/lineage-helio.jpg",      title: "With Grand Master Helio Gracie", text: "The founder of Gracie Jiu-Jitsu, whose programs are the basis of every class taught here." },
     { label: "Lineage",   image: "assets/img/lineage-promotion.jpg",  title: "Promoted by Royler Gracie",      text: "Mario's master, and one of the most decorated competitors in Gracie history." },
     { label: "Lineage",   image: "assets/img/lineage-royler.jpg",     title: "With Royler Gracie",             text: "A direct line back to the Gracie Humaitá academy in Rio." },
-    { label: "2014",      image: "assets/img/comp-podium.jpg",        title: "North American Tournament",      text: "On the podium at the 10th Annual North American Tournament." },
     { label: "Jan 2026",  image: "assets/img/lineage-coral-ceremony.jpg", title: "Coral belt ceremony",        text: "Promoted to coral belt at the original Gracie Humaitá academy in Rio de Janeiro, January 17, 2026." },
+    // "journey" draws a small belt progression. Colors: white, blue, purple, brown, black
+    { label: "Passing it on", image: "assets/img/lineage-ruben.jpg", title: "Ruben: purple belt to black belt", text: "Here with Master Mario after medaling as a purple belt. Today Ruben is a black belt, and he still trains at the academy.", journey: ["purple", "black"] },
   ],
 
   /* ---------- REVIEWS ----------
