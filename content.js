@@ -215,7 +215,7 @@ window.SITE = {
       { icon: "colors",   title: "Blue or white gi only", text: "For gi classes, please wear a blue or white gi." },
       { icon: "hygiene",  title: "Take care of hygiene", text: "Come to class fresh: no body odor, no bad breath. You'll be close to your partners the whole time." },
       { icon: "sick",     title: "Feeling sick? Skip training", text: "If you're sick, or think you might be, sit that day out. Your training partners will thank you." },
-      { icon: "check",    title: "Rash or skin infection? Ask first", text: "If you have a rash or anything that might be an infection, check with Master Mario or an upper belt before training, to make sure it isn't contagious." },
+      { icon: "check",    title: "Skin infection? Stay off the mats", text: "Never train with a rash or skin infection. If you know you have one, stay off the mats until it's fully healed. If you're not sure, ask Master Mario or an upper belt before class." },
       { icon: "shirt",    title: "Rash guard under your gi", text: "Not required, but we suggest wearing an undershirt or rash guard under your gi.", tag: "Recommended" },
     ],
   },
