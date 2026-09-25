@@ -68,10 +68,18 @@
     if ((c.mer || mer) === "p") h += 12;
     return h * 60 + c.m;
   }
-  // "4:30pm - 5:00pm" -> { start, end } in minutes after midnight
+  // "4:30pm - 5:00pm" -> { start, end } in minutes after midnight.
+  // A start time on its own ("7:00pm") is shown as just the start; for the
+  // "Happening now" badge it's treated as lasting schedule.defaultLength minutes.
   function parseRange(str, ctx) {
-    var parts = String(str || "").split(/\s*(?:-|–|—|\bto\b)\s*/i);
-    var a = parseClock(parts[0] || ""), b = parseClock(parts[1] || "");
+    var parts = String(str || "").split(/\s*(?:-|–|—|\bto\b)\s*/i).filter(Boolean);
+    var a = parseClock(parts[0] || "");
+    if (parts.length === 1) {
+      if (!a || !a.mer) { problem(ctx, 'time "' + str + '"'); return null; }
+      var st = toMinutes(a);
+      return { start: st, end: st + (+(S.schedule && S.schedule.defaultLength) || 90), open: true };
+    }
+    var b = parseClock(parts[1] || "");
     if (!a || !b || !(a.mer || b.mer)) { problem(ctx, 'time "' + str + '"'); return null; }
     var start = toMinutes(a, b.mer), end = toMinutes(b, a.mer);
     return { start: start, end: end };
@@ -84,6 +92,9 @@
   function mer(mins) { return Math.floor(mins / 60) % 24 < 12 ? "AM" : "PM"; }
   function formatRange(s, e) {
     return mer(s) === mer(e) ? hm(s) + "–" + hm(e) + " " + mer(e) : hm(s) + " " + mer(s) + " – " + hm(e) + " " + mer(e);
+  }
+  function formatSlot(r) {
+    return r.open ? hm(r.start) + " " + mer(r.start) : formatRange(r.start, r.end);
   }
   function formatDays(list) {
     var idx = list.map(function (d) { return WEEK_ORDER.indexOf(d); }).sort(function (a, b) { return a - b; });
@@ -120,7 +131,7 @@
     c._range = r;
     c._days = parseDays(c.days, c.name);
     c._days.forEach(function (d) {
-      sessions.push({ day: d, start: r.start, end: r.end, name: c.name, type: c.type || "", note: c.note || "" });
+      sessions.push({ day: d, start: r.start, end: r.end, open: !!r.open, name: c.name, type: c.type || "", note: c.note || "" });
     });
   });
   sessions.sort(function (a, b) { return a.start - b.start; });
@@ -156,7 +167,9 @@
     el.innerHTML = '<span class="pulse" aria-hidden="true"></span><span>' +
       "<small>" + (found.live ? "On the mat now" : "Next class") + "</small>" +
       "<strong>" + esc(found.s.name) + " · " +
-      (found.live ? "until " + hm(found.s.end) + " " + mer(found.s.end) : when + " " + hm(found.s.start) + " " + mer(found.s.start)) +
+      (found.live
+        ? (found.s.open ? "started " + hm(found.s.start) + " " + mer(found.s.start) : "until " + hm(found.s.end) + " " + mer(found.s.end))
+        : when + " " + hm(found.s.start) + " " + mer(found.s.start)) +
       "</strong></span>";
     el.hidden = false;
   }
@@ -175,12 +188,15 @@
     var live = isToday && s.start <= now.mins && now.mins < s.end;
     var past = isToday && now.mins >= s.end;
     return '<div class="session' + (live ? " is-live" : "") + (past ? " is-past" : "") + '" data-type="' + esc(s.type) + '">' +
-      '<span class="time">' + formatRange(s.start, s.end) + "</span>" +
+      '<span class="time">' + formatSlot(s) + "</span>" +
       '<span class="name">' + esc(s.name) + "</span>" +
       (s.note ? '<span class="note">' + esc(s.note) + "</span>" : "") +
       (live ? '<span class="live-badge">Happening now</span>' : "") +
       "</div>";
   }
+
+  var footnote = $("#schedule-footnote");
+  if (S.schedule && S.schedule.footnote) { footnote.textContent = S.schedule.footnote; footnote.hidden = false; }
 
   function renderFilters() {
     var types = S.classTypes || {};
@@ -284,7 +300,7 @@
     classes.forEach(function (c) {
       if (c.type !== type || !c._range || !c._days.length) return;
       if (!groups[c.name]) { groups[c.name] = []; order.push(c.name); }
-      groups[c.name].push(formatDays(c._days) + " · " + formatRange(c._range.start, c._range.end));
+      groups[c.name].push(formatDays(c._days) + " · " + formatSlot(c._range));
     });
     if (!order.length) return "";
     return '<ul class="times">' + order.map(function (name) {

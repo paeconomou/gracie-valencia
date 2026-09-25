@@ -219,6 +219,8 @@ p { margin: 0 0 1em; }
 .live-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #1fbf6a; }
 .session.is-past { opacity: .5; }
 .day-empty { font-size: .85rem; color: var(--muted); padding: 10px 4px; margin: 0; }
+.schedule-footnote { margin: 24px 0 0; padding: 2px 0 2px 14px; border-left: 3px solid var(--t-competition); font-weight: 600; font-size: .95rem; }
+.schedule-footnote + .schedule-foot { margin-top: 10px; }
 .schedule-foot { margin: 22px 0 0; color: var(--muted); font-size: .95rem; }
 .schedule-foot a { font-weight: 600; color: var(--ink); }
 @keyframes fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }

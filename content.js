@@ -55,7 +55,7 @@ window.SITE = {
        name:  what the class is called
        type:  which filter button it belongs to (see classTypes below)
        days:  "Mon Wed Fri"  or a range like  "Mon-Thu"
-       time:  "4:30pm - 5:00pm"
+       time:  "4:30pm - 5:00pm", or just a start time like "7:00pm"
        note:  optional extra line, e.g. "No-gi"  (or leave it out)
 
      Days: Mon Tue Wed Thu Fri Sat Sun                                   */
@@ -69,20 +69,29 @@ window.SITE = {
 
   schedule: {
     note: "Classes meet daily for all levels and ages. Arrive 5–10 minutes early ready to train. Schedule is subject to change, so call if you have questions.",
+    // Shown under the schedule. Leave "" for none.
+    footnote: "Kids Competition Class: participation requires an invitation from Master Mario.",
+    // For classes listed with only a start time, how long to treat them as
+    // lasting (in minutes). Only used for the "Happening now" badge.
+    defaultLength: 90,
     classes: [
-      { name: "Kids (ages 3–5)",   type: "kids",        days: "Mon Wed Fri", time: "4:30pm - 5:00pm" },
-      { name: "Kids (ages 5–12)",  type: "kids",        days: "Mon Wed Fri", time: "5:00pm - 6:00pm" },
-      { name: "Kids No-Gi",        type: "kids",        days: "Sat",         time: "9:00am - 10:00am" },
-      { name: "Kids Competition Class", type: "competition", days: "Mon Wed Fri", time: "6:00pm - 7:00pm" },
-      { name: "Fundamentals",      type: "fundamentals", days: "Tue Thu",    time: "5:00pm - 6:00pm", note: "All levels · beginners welcome" },
-      { name: "Adult Class",       type: "adults",      days: "Mon-Thu",     time: "10:30am - 12:00pm" },
-      { name: "Adult Class",       type: "adults",      days: "Mon-Thu",     time: "7:00pm - 8:30pm" },
-      { name: "Adult No-Gi",       type: "adults",      days: "Fri",         time: "10:30am - 12:00pm" },
-      { name: "Adult No-Gi",       type: "adults",      days: "Fri",         time: "7:00pm - 8:30pm" },
-      { name: "Women's Class",     type: "women",       days: "Sat",         time: "10:00am - 11:00am" },
-      // The old schedule image listed both "Adult Class" and "Women/Men Class"
-      // on Saturday 11:00–12:30. Shown here as one class. CONFIRM WITH MARIO.
-      { name: "Adult Class",       type: "adults",      days: "Sat",         time: "11:00am - 12:30pm", note: "Women & men" },
+      // Kids
+      { name: "Little Kids (ages 3–6)",  type: "kids",         days: "Mon Wed Fri", time: "4:15pm - 5:00pm" },
+      { name: "Kids (ages 7+)",          type: "kids",         days: "Mon Wed Fri", time: "5:00pm - 6:00pm" },
+      { name: "Kids No-Gi (ages 7+)",    type: "kids",         days: "Tue Thu",     time: "6:00pm - 7:00pm" },
+      { name: "Kids No-Gi (all ages)",   type: "kids",         days: "Sat",         time: "9:00am - 10:00am" },
+      // Kids competition (by invitation)
+      { name: "Kids Competition (Gi)",    type: "competition", days: "Mon Wed Fri", time: "9:30am - 10:30am", note: "By invitation" },
+      { name: "Kids Competition (No-Gi)", type: "competition", days: "Tue Thu",     time: "9:30am - 10:30am", note: "By invitation" },
+      { name: "Kids Competition (Gi)",    type: "competition", days: "Mon Wed Fri", time: "6:00pm - 7:00pm",  note: "By invitation" },
+      // Adults
+      { name: "Adults",                  type: "adults",       days: "Mon-Fri",     time: "10:30am" },
+      { name: "Adults",                  type: "adults",       days: "Mon-Thu",     time: "7:00pm" },
+      { name: "Adults No-Gi",            type: "adults",       days: "Fri",         time: "7:00pm" },
+      { name: "Adult Fundamentals",      type: "fundamentals", days: "Tue Thu",     time: "5:00pm - 6:00pm", note: "All levels · beginners welcome" },
+      { name: "Adult Open Mat",          type: "adults",       days: "Sat",         time: "11:00am" },
+      // Women
+      { name: "Women's Class",           type: "women",        days: "Sat",         time: "10:00am - 11:00am" },
     ],
   },
 
@@ -94,7 +103,7 @@ window.SITE = {
     {
       title: "Kids",
       type: "kids",
-      ages: "Ages 3–12",
+      ages: "Ages 3 and up",
       text: "Builds confidence, self-discipline and respect through excellent instruction and positive reinforcement, while keeping it fun. Bully-proof self-defense skills, and a kids competition team that has produced world champions.",
       image: "assets/img/kids-class.jpg",
     },
@@ -109,7 +118,7 @@ window.SITE = {
       title: "Adults",
       type: "adults",
       ages: "All levels · gi & no-gi",
-      text: "Morning and evening classes Monday through Thursday, no-gi on Fridays, and a Saturday class. Self-defense, sport grappling, and a workout like you've never had.",
+      text: "Morning classes Monday through Friday, evening classes Monday through Thursday, no-gi on Friday nights, and an open mat on Saturdays. Self-defense, sport grappling, and a workout like you've never had.",
       image: "assets/img/mario-rolling.jpg",
     },
     {
@@ -122,9 +131,9 @@ window.SITE = {
     {
       title: "Kids Competition Team",
       type: "competition",
-      ages: "Kids · tournament training",
+      ages: "By invitation · tournament training",
       // CONFIRM WITH MARIO: which world titles (e.g. IBJJF Kids Worlds, year) so this can be specific.
-      text: "For kids who want to compete. Tournament preparation, gi and no-gi, with the team that has produced world champions.",
+      text: "Tournament preparation, gi and no-gi, with the team that has produced world champions. Participation requires an invitation from Master Mario.",
       image: "",
     },
     {
@@ -198,7 +207,7 @@ window.SITE = {
       "The Gracie Academy later moved from downtown Rio to the Vasco da Gama club in Lagoa in 1981, and in 1985 to Humaitá, where Gracie Humaitá still teaches today under Master Rolker Gracie. Gracie Humaitá Valencia carries on that same lineage.",
     ] },
     { q: "What should I bring to my first class?", a: "Arrive 5–10 minutes early ready to train. Wear comfortable workout clothes and bring water. If you have a gi, bring it. If not, just ask when you book." },
-    { q: "How old does my child need to be?", a: "Our youngest class starts at age 3, and kids 5–12 have their own class. There's also a kids no-gi class on Saturday mornings. See the schedule for times." },
+    { q: "How old does my child need to be?", a: "Our Little Kids class is for ages 3–6, and the Kids class is for ages 7 and up. There are also kids no-gi classes during the week and on Saturday mornings. See the schedule for times." },
     { q: "What's the difference between gi and no-gi?", a: "Gi classes are taught in the traditional kimono, where grips on the collar and sleeves are part of the game. No-gi is trained in shorts and a rash guard, which makes it faster and closer to wrestling and MMA. We train both." },
     { q: "Do you offer private lessons?", a: "Yes. Private lessons with Master Mario are available on request. Call or text to set one up." },
   ],
