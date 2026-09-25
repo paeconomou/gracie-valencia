@@ -204,11 +204,11 @@ window.SITE = {
     heading: "Before you step on the mat",
     intro: "Jiu-jitsu is a close-contact sport, so we look out for each other. A few house rules keep everyone healthy and training. Most regulars follow them without thinking, but nobody tells you on day one, so here they are.",
     alert: {
-      title: "Footwear in the bathroom. Always.",
-      text: "Never walk into the restroom barefoot. It's the most important rule we have for preventing skin infections, for you and for everyone you train with.",
+      title: "Off the mats? Footwear on. Always.",
+      text: "Whenever you step off the mat, put your footwear on, especially in the bathroom. It's the most important rule we have for preventing skin infections. Please bring flip-flops, slides or something similar.",
     },
     rules: [
-      { icon: "footwear", title: "Shoes off the mat, sandals on everywhere else", text: "Never wear shoes on the mats. Bring flip-flops or slides and put them on any time you step off." },
+      { icon: "footwear", title: "No shoes on the mats", text: "Shoes and sandals never touch the mats. Slip them off at the edge before you step on." },
       { icon: "nails",    title: "Trim your nails", text: "Short fingernails and toenails protect your training partners, and you." },
       { icon: "jewelry",  title: "Remove jewelry and piercings", text: "Rings, watches, earrings and piercings come off before class. They can scratch a partner or catch and tear." },
       { icon: "gi",       title: "A clean gi, every class", text: "Always train in a freshly washed uniform. After class, wash it as soon as you can to prevent stains and smells." },
